@@ -14,3 +14,8 @@ int main(){
     int size = sizeof(arr)/sizeof(arr[0]);
     printArray(arr, size);
 }
+
+
+int mata[2][3];
+int matb[][3] = {123,45,67,8,9,0};
+int matc[2][] = {123,45,67,8,9,0};
