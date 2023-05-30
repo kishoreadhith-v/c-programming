@@ -38,3 +38,9 @@ This snippet shows how to point to an array and how it is different from pointin
 
 #### Note:
 - When we use just the name of the array, it points to the first element of it. (the `&` is not to be prefixed to the name of the array)
+
+---
+
+## Pointer arithmetic
+
+Incrementing the pointer of an element of an array, gives the next element
