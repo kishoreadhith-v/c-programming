@@ -438,11 +438,13 @@ int main(){
 
 
 5. Write a program using for to print the following pattern.
+```
 *
 * *
 * * *
 * * * *
 * * * * *
+```
 ```c
 #include <stdio.h>
 int main(){
@@ -782,5 +784,538 @@ int main()
 ```
 Output:
 2342
+
+## Operators
+### Ternary operator
+It is a shorthand way of writing an if-else statement in a single line.
+Syntax:
+```
+condition ? expression1 : expression2;
+```
+The "condition" is an expression that evaluates to either true or false.
+If the condition is true, the value of "expression1" is returned.
+If the condition is false, the value of "expression2" is returned.
+
+examples:
+
+Maximum of 2 numbers:
+```c
+#include <stdio.h>
+int main(){
+    int n1 = 2, n2 = 5, max;
+    max = (n1 > n2) ? n1 : n2;
+    printf("Max: %d\n", max);
+}
+```
+
+Maximum of 3 numbers:
+```c
+#include <stdio.h>
+int main(){
+    int n1 = 8, n2 =5, n3 = 7, max;
+    max = (n1 > n2) ? (n1 > n3) ? n1 : n3 : (n2 > n3) ? n2 : n3;
+    printf("Max: %d\n", max);
+}
+```
+
+### Bitwise Operators in C
+
+Bitwise operators in C are used to manipulate individual bits of integers at a binary level. They perform operations on each bit of a number independently.
+
+#### 1. AND Operator (`&`)
+
+- Performs a bitwise AND operation between given bits of two operands.
+- The result is 1 only if both bits are 1; otherwise, it is 0.
+- Example demonstrating the operator:
+  ```c
+	#include <stdio.h>
+	int main(){
+	    int a = 5, b = 6;
+	    printf("%d\n", 5 & 6);
+	    printf("%d\n", 5 && 6);
+	}
+  ```
+
+#### 2. OR Operator (`|`)
+
+- Performs a bitwise OR operation between given bits of two operands.
+- The result is 1 if at least one of the bits is 1; otherwise, it is 0.
+- Example demonstrating the operator:
+  ```c
+	#include <stdio.h>
+	int main(){
+	    int a = 5, b = 6;
+	    printf("%d\n", 5 | 6);
+	    printf("%d\n", 5 || 6);
+	}
+  ```
+
+#### 3. XOR Operator (`^`)
+
+- Performs a bitwise exclusive OR (XOR) operation between given bits of two operands.
+- The result is 1 if the bits are different; otherwise, it is 0.
+- Example demonstrating the operator:
+  ```c
+	#include <stdio.h>
+	int main(){
+	    int a = 5, b = 6;
+	    printf("%d\n", 5 ^ 6);
+	}
+  ```
+
+#### 4. NOT Operator (`~`)
+
+- Performs a bitwise NOT operation, which flips each bit of the operand.
+- Changes 1 to 0 and 0 to 1.
+- Example demonstrating the operator:
+  ```c
+	#include <stdio.h>
+	int main(){
+	    int a = 5, b = 6;
+	    printf("%d\n", ~a);
+	    printf("%d\n", !a);
+	    printf("%d\n", ~b);
+	    printf("%d\n", !0);
+	    printf("%d\n", ~0);
+	}
+  ```
+
+#### 5. Left Shift Operator (`<<`)
+
+- Shifts the bits of the left operand to the left by a specified number of positions.
+- Vacant positions are filled with zeros.
+- Equivalent to multiplying the operand by 2 raised to the power of the number of positions shifted.
+
+
+#### 6. Right Shift Operator (`>>`)
+
+- Shifts the bits of the left operand to the right by a specified number of positions.
+- For unsigned values, vacant positions are filled with zeros.
+- For signed values, the sign bit is replicated to fill the vacant positions.
+- Equivalent to dividing the operand by 2 raised to the power of the number of positions shifted.
+- Example demonstrating the shift operators:
+  ```c
+	#include <stdio.h>
+	int main(){
+	    int a = 15, b = 1;
+	    printf("%d\n", a << b);
+	    printf("%d\n", a << 2);
+	    printf("%d\n", a << 3);
+	    printf("%d\n", a >> b);
+	    printf("%d\n", a >> 2);
+	    printf("%d\n", a >> 3);
+	}
+  ```
+
+### Functions in C
+
+Functions in C are blocks of code that can be reused throughout a program. They allow us to modularize code and make it more manageable.
+
+#### Function Definition
+
+A function definition consists of the following components:
+
+```c
+return_type function_name(parameter1, parameter2, ...) {
+    // Code to execute
+    return value; // (optional) return a value
+}
+```
+Examples:
+
+Passing an array as an argument:
+
+```c
+#include <stdio.h>
+
+void printArray(int arr[], int size){
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d | ", arr[i]);
+    }
+    printf("\n");
+    
+}
+
+int main(){
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    printArray(arr, size);
+}
+```
+
+listing all prime numbers in a given range:
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+bool isFactor(int n, int x){
+    return n % x ==0;
+}
+
+bool isPrime(int n){
+    for (int i = 2; i < (n/2)+1; i++)
+    {
+        if (isFactor(n, i))
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int primeRange(int lower, int upper){
+    printf("The primes numbers between %d and %d are:\n", lower, upper);
+    for (int i = lower; i < upper; i++)
+    {
+        if (isPrime(i))
+        {
+            printf("%d\n", i);
+        }        
+    }    
+    return 0;
+}
+
+int main(){
+    int l, u;
+    printf("Enter the lower and the upper limits: \n");
+    scanf("%d", &l);
+    scanf("%d", &u);
+    primeRange(l, u);
+}
+```
+Printing a 2d matrix using a function:
+
+```c
+#include <stdio.h>
+
+void printMatrix(int mat[][3], int rows, int cols){
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++){
+            printf("%d | ", mat[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main(){
+    int mat[][3] = {1,2,3,4,5, 567, 567,8, 56,78,8};
+    int rows = sizeof(mat)/sizeof(mat[0]);
+    int cols = sizeof(mat[0])/sizeof(mat[0][0]);
+    printMatrix(mat, rows, cols);
+}
+```
+
+### Recursion
+
+#### Terminologies
+
+- `Stack`: A last-in-first-out datatype. The execution context/ call stack is based on this datatype. 
+
+#### Call stack
+It is a stack of all the variables and functions that are being executed currently
+#### Recursion
+
+Two main parts of a recursive function:
+- Base case: The final case or the case at which the recursion has to be stopped.
+- Recursive case: Any case at which the recursion is continued ie. the same function is called. Any case which isn't the base case is probably a recursive case.
+Every successive recursive case must have its problem size reduced.
+Every recursive case must have the same logic.
+
+Example: recursive function to find factorial
+```c
+int factorial(int n){
+    if (n == 1){
+        return 1;
+    }
+    return n * factorial(n-1);
+}
+```
+Tower of hanoi:
+
+```c
+#include <stdio.h>
+
+void hanoi(int n, char source, char destination, char auxilliary){
+    if (n == 1)
+    {
+        printf("Move disc 1 from peg %c to peg %c\n", source, destination);
+        return;
+    }
+    
+    hanoi(n -1, source, auxilliary, destination);
+    printf("Move disc %d from peg %c to peg %c\n", n, source, destination);
+    hanoi(n -1, auxilliary, destination, source);
+}
+
+int main(){
+    hanoi(4, 'a', 'b', 'c');
+}
+```
+
+### Switch Case Statement in C
+
+The switch case statement in C is used to select one of many code blocks to be executed based on the value of an expression. Here are some key points about the switch case statement:
+
+#### Syntax
+
+```c
+switch (expression) {
+    case constant1:
+        // Code to execute if expression matches constant1
+        break;
+    case constant2:
+        // Code to execute if expression matches constant2
+        break;
+    // Add more cases as needed
+    default:
+        // Code to execute if expression doesn't match any case
+}
+```
+Examples:
+Calculator using switch case:
+
+```c
+#include <stdio.h>
+
+int main(){
+    int a,b;
+    char op;
+    do{
+        printf("Enter the two numbers and option in the format [num1 num2 option]: ");
+        printf("Choose one option from the menu\n");
+        printf("a : add\ns : subtract\nm : multiply\nd : divide\ne : end\n");
+        scanf("%d %d %c", &a, &b, &op);
+        switch (op)
+        {
+        case 'a':
+            printf("Sum = %d \n---\n", a + b);
+            break;
+        case 's':
+            printf("Difference = %d \n---\n", a - b);
+            break;
+        case 'm':
+            printf("Product = %d \n---\n", a * b);
+            break;
+        case 'd':
+            printf("Quotient = %d \n---\n", a / b);
+            break;
+        case 'e':
+            printf("Exiting loop\n---\n");
+            break;
+            
+        default:
+            printf("%c", op);
+            printf("Invalid input, try again...");
+            break;
+        }
+}while(op != 'e');
+    return 0;
+}
+```
+
+### Structures
+Structs in C are used to create custom data types that can hold multiple variables of different types as a single unit. They allow you to group related data together.
+
+#### Syntax for declaration
+
+```c
+struct MyStructure {   // Structure declaration
+  int myNum;           // Member (int variable)
+  char myLetter;       // Member (char variable)
+}; // End the structure with a semicolon
+```
+Example:
+```c
+struct Student {   // Structure declaration
+  char name[50], rollno;       // Member (char variable)
+  int myNum;           // Member (int variable)
+}; // End the structure with a semicolon
+```
+Structs to store data related to people:
+
+```c
+#include <stdio.h>
+
+
+struct Person{
+    char name[50];
+    float height;
+    int age;
+};
+
+void printPerson(struct Person p){
+    printf("---------------------------\n");
+    printf("Name   : %s\n", p.name);
+    printf("Height : %.3f\n", p.height);
+    printf("Age    : %d\n", p.age);
+    printf("---------------------------\n");
+}
+
+int main(){
+    struct Person people[3] = {
+        {"Luffy", 174.2, 19},
+        {"Zoro", 181, 21},
+        {"Sanji", 180, 21},
+    };
+    for(int i = 0; i < 3; i++)
+    {
+        printPerson(people[i]);
+    }
+
+    struct Person p1[3];
+    struct Person p2[3];
+    struct Person p3[3];
+
+    p1[0] = (struct Person) {"John", 167, 21};
+    p1[1] = (struct Person) {"Alex", 172, 22};
+    p1[2] = (struct Person) {"Michael", 181, 20};
+
+    for(int i = 0; i < 3; i++)
+    {
+        printPerson(p1[i]);
+    }
+
+    p2[0] = (struct Person) {.name = "Shanks", .height = 200, .age = 41};
+    p2[1] = (struct Person) {.name = "Beckmann", .height = 210, .age = 52};
+    p2[2] = (struct Person) {.name = "Yasopp", .height = 190, .age = 51};
+
+    for(int i = 0; i < 3; i++)
+    {
+        printPerson(p2[i]);
+    }
+    
+    for(int i = 0; i < 3; i++)
+    {
+        scanf("%s %f %d", &p3[i].name,  &p3[i].height, &p3[i].age);
+    }
+
+    
+    
+
+    for(int i = 0; i < 3; i++)
+    {
+        printPerson(p3[i]);
+    }    
+}
+```
+
+Finding average marks of students using a struct:
+
+```c
+#include <stdio.h>
+
+
+struct Student{
+    char name[50];
+    float marks[6], avg;
+};
+
+void printAverage(struct Student s){
+    float sum = 0;
+    for (int j = 0; j < 6; j++)
+    {
+        sum += s.marks[j];
+    }
+    s.avg = sum/6;
+    printf("---------------------------------------------------------\n");
+    printf("Name       : %s\n", s.name);
+    printf("Marks      : ");
+    for (int i = 0; i < 6; i++)
+    {
+        printf("%.1f\t", s.marks[i]);
+    }
+    
+    printf("Average    : %f\n", s.avg);
+    printf("---------------------------------------------------------\n");
+}
+
+struct Student arrayAverage(struct Student s[], int len){
+    float max = 0;
+    for (int i = 0; i < len; i++)
+    {
+        float sum = 0;
+        for (int j = 0; j < 6; j++)
+        {
+            sum += s[i].marks[j];
+        }
+        s[i].avg = sum/6;
+        max = s[i].avg > max ? s[i].avg : max;
+    }
+    for (int i = 0; i < len; i++)
+    {
+        if(s[i].avg == max){
+            return s[i];
+        }
+    }   
+}
+
+int main(){
+    struct Student s[3];
+
+    for(int i = 0; i < 3; i++){
+        printf("Enter name of student %d: ", i+1);
+        scanf("%s", s[i].name);
+        printf("Enter marks of student %d: ", i+1);
+        for (int j = 0; j < 6; j++)
+        {
+            scanf("%f", &s[i].marks[j]);
+        }
+    }
+        
+    for(int i = 0; i < 3; i++){
+        printAverage(s[i]);
+    }
+    printAverage(arrayAverage(s, 3));
+}
+```
+
+### Pointers
+
+consider...
+
+```c
+int main(){
+    int x = 15;
+    int *ptr = &x;
+    printf("%d", x);
+    printf("%p", ptr);
+    printf("%p", *ptr);
+}
+```
+
+In the above example
+- `ptr` is a pointer which points to the address of the variable `x`
+- the `&` operator is used to assign the address of `x` to `ptr`
+- the `*` operator gives the value of `x` (reverse of `&`)
+- the datatype of the pointer should be same as tha tof the variable it is pointing to.
+- 
+
+```c
+printf("\nValue: %f : %f\n", f, *ptrf);
+printf("Address: %p : %p\n", &f, ptrf);
+```
+
+The above snippet shows the different ways to print the value and address of a variable.
+
+---
+#### Pointer to an array
+
+```c
+int a1[] = {1, 2, 3, 4, 5}, a2 = 10;
+int *ptr1 = a1, *ptr2 = &a2; 
+```
+
+This snippet shows how to point to an array and how it is different from pointing to just a variable
+
+##### Note:
+- When we use just the name of the array, it points to the first element of it. (the `&` is not to be prefixed to the name of the array)
+
+---
+
+#### Pointer arithmetic
+
+Incrementing the pointer of an element of an array, gives the next element
 
 
