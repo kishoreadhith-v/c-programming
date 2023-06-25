@@ -1,4 +1,6 @@
 # C programming notes
+Kishoreadhith V
+19z232 - I BE CSE G1
 ---
 ## Table of contents
 |                      Topic                      	| Page 	|
