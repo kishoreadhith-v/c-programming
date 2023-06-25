@@ -1,5 +1,5 @@
 # C programming notes
-
+---
 ## Table of contents
 |                      Topic                      	| Page 	|
 |:-----------------------------------------------:	|:----:	|
@@ -8,12 +8,48 @@
 | Loops in C                                      	|      	|
 | Ternary operator                                	|      	|
 | Bitwise operators                               	|      	|
+| Arrays      		                               	|      	|
+| Strings		                               	|      	|
 | Functions                                       	|      	|
 | Recursion                                       	|      	|
 | Switch case                                     	|      	|
 | Structures                                      	|      	|
 | Pointers                                        	|      	|
+| Problem Sheet 1                                      	|      	|
+| Problem Sheet 2                                      	|      	|
+---
 
+## Basic structure of a C program and header files
+
+- Header Files:
+
+A C program often includes one or more header files at the beginning of the source code. Header files provide function prototypes and definitions for the functions used in the program. They typically have a ".h" extension. Examples of commonly used header files are stdio.h, stdlib.h, and math.h. Header files are included using the `#include` preprocessor directive.
+Local files can also be imported.
+```c
+#include "myheader.h"
+```
+
+
+- Function Declarations:
+
+After the header file inclusion, you can declare your own functions or external functions used in your program. Function declarations specify the return type, name, and parameter types (if any) of the function. For example:
+
+```c
+int add(int a, int b);  // Function declaration
+void printMessage();    // Another function declaration
+```
+- Main Function:
+
+Every C program must have a main function, which serves as the entry point for execution. It is where the program starts running. The main function has a specific format:
+```c
+int main()
+{
+    // Statements and function calls
+    return 0;
+}
+```
+
+---
 C Programs:
 To print “Hello World”
 ```c
@@ -97,8 +133,7 @@ The current working directory of the source code being compiled.
 The directories specified by the -I command-line option or the INCLUDE environment variable.
 The standard system directories eg: `C:\MinGW\include` or `C:\CodeBlocks\MinGW\include`
 If the header file is still not found, it raises an error.
-
-## Week 2
+---
 ## Format specifiers and data types cheat sheet
 ![image](https://github.com/kishoreadhith-v/c-programming/assets/117294726/74649bea-0595-4743-a1f4-440c537d616c)
 
@@ -142,7 +177,92 @@ int main(){
 output:
 ![image](https://github.com/kishoreadhith-v/c-programming/assets/117294726/34b97c12-d8cb-4f6a-bb38-513a735f22c1)
 
-## For loop
+### Edit configs in C:
+
+`%[a-zA-Z]`\
+Accepts input until any character other than the mentioned character appears(**a-z** and **A-Z**)
+`%[^a-zA-Z]`\
+Accepts input until any of the mentioned character appears(**a-z** and **A-Z**)
+
+---
+## Loops in C:
+
+1. for Loop:
+The for loop is used to repeatedly execute a block of code a specified number of times.
+
+Syntax:
+```c
+for (initialization; condition; increment/decrement) {
+    // Code to be executed
+}
+```
+example:
+```c
+for (int i = 1; i <= 5; i++) {
+    printf("%d ", i);
+}
+```
+Output: 1 2 3 4 5
+
+2. while Loop:
+The while loop is used to repeatedly execute a block of code as long as the specified condition is true.
+
+Syntax:
+
+```c
+while (condition) {
+    // Code to be executed
+}
+```
+example:
+```c
+int i = 1;
+while (i <= 5) {
+    printf("%d ", i);
+    i++;
+}
+```
+Output: 1 2 3 4 5
+
+3. do-while Loop:
+The do-while loop is used to repeatedly execute a block of code at least once, and then continue executing as long as the specified condition is true.
+
+Syntax:
+```c
+do {
+    // Code to be executed
+} while (condition);
+```
+example:
+```c
+int i = 1;
+do {
+    printf("%d ", i);
+    i++;
+} while (i <= 5);
+```
+4. break and continue Statements:
+break is used to exit a loop prematurely, while continue is used to skip the remaining code in the loop and proceed to the next iteration.
+
+example
+```c
+for (int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        break;      // Exit the loop when i equals 3
+    }
+    if (i == 2) {
+        continue;   // Skip the iteration when i equals 2
+    }
+    printf("%d ", i);
+}
+```
+Output: 1
+
+5. Nested Loops:
+C allows loops to be nested, i.e., one loop can be placed inside another loop.
+
+
+Examples functions using for loop(can also be implemented using other loops):
 ```c
 #include <stdio.h>
 
@@ -323,7 +443,7 @@ int main()
 
 
 
-Prefix vs postfix increment/ decrement:
+## Prefix vs postfix increment/ decrement:
 The prefix increment operator makes the change in the value before assigning it to the variable, while the postfix operator makes the change after the assignment.
 
 Demonstration:
@@ -335,412 +455,7 @@ c = ++a;
 d = b++;
 printf("%d %d", c,d);
 ```
-### Problem sheet 1
 
-1. Write a program to find the sum of the digits of a given number using a while loop.
-```c
-#include <stdio.h>
-int main(){
-    int n, copy, sum = 0;
-    printf("Enter a number: ");
-    scanf("%d", &n);
-    copy = n;
-    while(copy > 0){
-        sum += (copy % 10);
-        copy /= 10;
-    }
-    printf("Sum of digits of the number %d is %d\n", n, sum);
-    return 0;
-}
-```
-2. Write a program that takes a character as input and uses the ternary operator to print
-whether the character is a vowel or a consonant.
-```c
-#include <stdio.h>
-int main(){
-    char c;
-    printf("Enter a character: ");
-    scanf("%c", &c);
-    c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u '|| c =='A' || c =='E'|| c =='I'|| c =='O'|| c =='U'  ? printf("Vowel\n") : printf("Not a vowel\n");
-    return 0;
-}
-```
-
-
-
-
-3. Write a program that takes an integer as input, which represents a month number (1-12),
-and uses the switch statement to print the corresponding month name.
-```c
-#include <stdio.h>
-int main(){
-    int month;
-    // input for month number
-    printf("Enter a month number: ");
-    scanf("%d", &month);
-    // printing the month
-    switch (month)
-    {
-    case 1:
-        printf("January\n");
-        break;
-    case 2:
-        printf("February\n");
-        break;
-    case 3:
-        printf("March\n");
-        break;
-    case 4:
-        printf("April\n");
-        break;
-    case 5:
-        printf("May\n");
-        break;
-    case 6:
-        printf("June\n");
-        break;
-    case 7:
-        printf("July\n");
-        break;
-    case 8:
-        printf("August\n");
-        break;
-    case 9:
-        printf("September\n");
-        break;
-    case 10:
-        printf("October\n");
-        break;
-    case 11:
-        printf("November\n");
-        break;
-    case 12:
-        printf("December\n");
-        break;
-    default:
-    printf("Invalid month number\n");
-        break;
-    return 0;
-    }
-}
-```
-4. Write a program to check if it is a palindrome
-```c
-#include <stdio.h>
-#include <string.h>
-
-
-int main(){
-    char word[1000], rev[1000];
-    // input for the word
-    printf("Enter a word: ");
-    scanf("%s", word);
-    int len = strlen(word);
-    for (int i = 0; i < len; i++)
-    {
-        rev[i] = word[len-i-1];
-    }
-    rev[len] = '\0';
-    strcmp(word, rev) ? printf("Not a palindrome\n") : printf("Palindrome\n");
-    return 0;
-}
-```
-
-
-
-
-
-
-5. Write a program using for to print the following pattern.
-```
-*
-* *
-* * *
-* * * *
-* * * * *
-```
-```c
-#include <stdio.h>
-int main(){
-    for (int i = 1; i <= 5; i++)
-    {
-        for (int j = 1; j <= i; j++)
-        {
-            printf("* ");
-        } // closing inner loop
-        printf("\n");
-    }
-    return 0;
-}
-```
-6. Write a program that takes a 2D array of integers as input and prints the largest element in the array.
-```c
-#include <stdio.h>
-int main(){
-    int arr[100], n, max;
-    printf("Enter the number of elements: ");
-    scanf("%d", &n);
-    // input for the array
-    printf("Enter the elements\n");
-    for (int i = 0; i < n; i++)
-    {
-        scanf("%d", &arr[i]);
-    }
-    // finding the max
-    max = arr[0];
-    for (int i = 1; i < n; i++)
-    {
-        if (arr[i] > max)
-        {
-            max = arr[i];
-        } // closing if
-       
-    }
-    printf("The largest element in the array is: %d\n", max);
-    return 0;
-}
-```
-7. Write a program that takes a 2D array of characters as input and prints each element in the array on a new line.
-```c
-#include <stdio.h>
-int main(){
-    char arr[100];
-    int n;
-    printf("Enter the number of characters: ");
-    scanf("%d", &n);
-    getchar(); // to clear the \n from the previous input
-    // input for the array
-    printf("Enter the characters\n");
-    for (int i = 0; i < n; i++)
-    {
-        scanf("%c", &arr[i]);
-    }
-    // printing
-    for (int i = 0; i < n; i++)
-    {
-        printf("%c\n", arr[i]);
-    }
-    return 0;
-}
-```
-8. Write a program that takes an integer as input and uses the printf function to print the integer in hexadecimal format. Use the %x format specifier to print the hexadecimal number.
-```c
-#include <stdio.h>
-int main(){
-    int num;
-    // input for number
-    printf("Enter a number: ");
-    scanf("%d", &num);
-    // printing the number in hexadecimal
-    printf("The number in hexadecimal is: %x\n", num);
-    return 0;
-}
-```
-9. Write a program that takes a string and an integer as input and uses the printf function to print
-them. Use the %s format specifier to print the string and the %5d format specifier to print the
-integer with a minimum width of 5 characters.
-```c
-#include <stdio.h>
-int main(){
-    int num;
-    char str[100];
-    printf("Enter a number: ");
-    scanf("%d", &num);
-    printf("Enter a string: ");
-    scanf("%s", str);
-    printf("Number: %5d\nString: %s\n", num, str);
-    return 0;
-}
-```
-10. Write a program that generates a random number between 1 and 100 and asks the user to guess the number. Use a do-while loop to keep asking the user for guesses until they correctly guess the number.
-```c
-#include <stdio.h>
-#include <stdlib.h>
-int main(){
-    // generating random number
-    int random = rand() % 100, guess;
-    // checking guesses
-    do
-    {
-        printf("Enter your guess: ");
-        scanf("%d", &guess);
-        guess == random ? printf("Correct!\n") : guess > random ? printf("Try lower\n") : printf("Try higher\n");
-    } while (guess != random);
-    return 0;
-}
-```
-
-
-### Problem sheet 2
-
-Question 2
-Write a C function named sort that takes a 1D integer array as input and sorts the array elements in
-ascending order. The function should modify the original array passed as an argument. Implement the
-function and provide a sample usage.
-Function Signature:
-void sort(int arr[], int size);
-```c
-#include <stdio.h>
-
-void sort(int arr[], int size);
-void print(int arr[], int size);
-
-
-int main() {
-    int nums[] = {3,1,6,2,5,7,4,8};
-    int len = sizeof(nums) / sizeof(nums[0]);
-    sort(nums, len);
-    print(nums, len);
-    return 0;
-}
-
-void sort(int arr[], int size)
-{
-    for(int i = 0; i < size; i++)
-    {
-        for(int j = 0; j < size - i; j++)
-        {
-            if(arr[j] > arr[j+1])
-            {
-                int temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-            }
-        }
-    }
-}
-
-void print(int arr[], int size)
-{
-    for(int i = 0; i < size; i++)
-    {
-        printf("%d\t", arr[i]);
-    }
-    printf("\n");
-}
-```
-
-Question 3
-Write a program in C to perform the following operations on arrays of strings:
-
-i) Find the length of the shortest string.
-ii) Find the length of the longest string.
-iii) Calculate the average length of all the strings.
-iv) Count the number of strings with a length greater than a given threshold.
-Your program should take an array of strings as input and provide a menu-driven interface to perform
-these operations. The program should terminate when the user chooses to exit.
-Note:
-Assume that the maximum number of strings in the array is 100 and the maximum length of each string
-is 100 characters. The length of a string should be calculated excluding the null-terminating character
-&#39;\0&#39;.
-You can use the following function signatures as a reference:
-int findShortestString(char arr[][100], int n);
-int findLongestString(char arr[][100], int n);
-float calculateAverageLength(char arr[][100], int n);
-int countStringsAboveThreshold(char arr[][100], int n, int threshold);
-Provide the necessary user prompts and handle the input/output accordingly. Write the program code
-and the necessary functions to implement the above operations.
-```c
-#include <stdio.h>
-#include <string.h>
-
-int findShortestString(char arr[][100], int n);
-int findLongestString(char arr[][100], int n);
-float calculateAverageLength(char arr[][100], int n);
-int countStringsAboveThreshold(char arr[][100], int n, int threshold);
-void getArray(char arr[][100], int n);
-
-int main() {
-    int n;
-    char op;
-    do{
-        printf("Enter the number of words to be input: ");
-    scanf("%d", &n);
-    char words[n][100];
-    getArray(words, n);
-    printf("Choose your option:\na - find the length of the shortest string\nb - find the length of the shortest string\nc - average length of strings\nd - count the number of strings with a length greater than a given threshold.\ne - Exit\n");
-    op =getchar();
-    switch(op)
-    {
-        case 'a':
-            printf("%d\n", findShortestString(words, n));
-            break;
-        case 'b':
-            printf("%d\n", findLongestString(words, n));
-            break;
-        case 'c':
-            printf("%f\n", calculateAverageLength(words, n));
-            break;
-        case 'd':
-            printf("Enter the threshold: ");
-            int threshold = scanf("%d", &threshold);
-            printf("%d\n", countStringsAboveThreshold(words, n, threshold));
-            break;
-        case 'e':
-            // exit
-            break;
-    }
-    } while(op != 'e');
-    return 0;
-}
-
-void getArray(char arr[][100], int n)
-{
-    scanf("\n");
-    for(int i=0; i<n; i++)
-    {
-        // fflush(stdin);
-        gets(arr[i]);
-    }
-}
-
-int findShortestString(char arr[][100], int n){
-    int min = strlen(arr[0]);
-    for(int i=1; i< n; i++)
-    {
-        if(strlen(arr[i]) < min)
-        {
-            min = strlen(arr[i]);
-        }
-    }
-    return min;
-}
-
-int findLongestString(char arr[][100], int n){
-    int max = strlen(arr[0]);
-    for(int i=1; i< n; i++)
-    {
-        if(strlen(arr[i]) > max)
-        {
-            max = strlen(arr[i]);
-        }
-    }
-    return max;
-}
-
-float calculateAverageLength(char arr[][100], int n){
-    int sum = 0;
-    for(int i=0; i< n; i++)
-    {
-        sum += strlen(arr[i]);
-    }
-    float avg = sum / (float) n;
-    return avg;
-    
-}
-
-int countStringsAboveThreshold(char arr[][100], int n, int threshold){
-    int count = 0;
-    for(int i = 0; i< n; i++)
-    {
-        if(strlen(arr[i]) > threshold)
-        {
-            count++;
-        }
-    }
-    return count;
-}
-```
 
 Format specifiers to print octal and hexadecimal numbers
 %d - decimal  
@@ -920,6 +635,87 @@ Bitwise operators in C are used to manipulate individual bits of integers at a b
 	    printf("%d\n", a >> 3);
 	}
   ```
+### Arrays
+Arrays in C are used to store a collection of elements of the same data type in contiguous memory locations. They provide a convenient way to work with a group of related values.
+
+Syntax:
+```c
+datatype arrayName[arraySize];
+```
+`datatype` specifies the data type of the elements in the array (e.g., int, float, char).
+`arrayName` is the name of the array.
+`arraySize` is the number of elements the array can hold.
+
+example:
+```c
+#include <stdio.h>
+
+int main()
+{
+    int numbers[5];  // Declaration of an integer array
+
+    // Assigning values to the array elements
+    numbers[0] = 10;
+    numbers[1] = 20;
+    numbers[2] = 30;
+    numbers[3] = 40;
+    numbers[4] = 50;
+
+    // Accessing and printing array elements
+    printf("Element at index 0: %d\n", numbers[0]);
+    printf("Element at index 2: %d\n", numbers[2]);
+    printf("Element at index 4: %d\n", numbers[4]);
+
+    return 0;
+}
+```
+
+## Strings
+- A string is a sequence of characters stored in an array. It is terminated by the null character ('\0') which marks the end of the string.
+- Strings are represented as character arrays, where each character is stored in a consecutive memory location.
+- String literals are enclosed in double quotes ("...") and automatically include the null character at the end.
+  syntax:
+```c
+char str[SIZE];
+```
+```c
+char str[] = "Hello";
+```
+- The string is automatically sized to accommodate the characters in the initializer, including the null character.
+- The `%s` format specifier is used for reading or writing strings.
+  
+### String Functions:
+
+- strlen(str): Returns the length of the string (excluding the null character).
+- strcpy(dest, src): Copies the contents of the source string to the destination string.
+- strcat(dest, src): Concatenates the source string to the end of the destination string.
+- strcmp(str1, str2): Compares two strings and returns an integer indicating their relationship.
+- strchr(str, ch): Searches for the first occurrence of a character in the string and returns its address.
+
+example:
+```c
+#include <stdio.h>
+#include <string.h>
+int main(){
+    char str[100] = "Hello World";
+    printf("%d\n", strlen(str));
+    printf("%d\n", sizeof(str));
+
+    char str1[100] = "Hello";
+    char str2[100] = "World";
+    printf("%s\n", strcat(str1, str2));
+    printf("%s\n", strcat(str1, "--"));
+
+    char str3[100] = "Hello";
+    char str4[100];
+    strcpy(str4, str3);
+    printf("%s\n", str4);
+
+    printf("%d\n", strcmp("Hello", "Hello"));
+    printf("%d\n", strcmp("Hello", "Hello World"));
+    printf("%d\n", strncmp("Hello", "Hello World", 6));   
+}
+```
 
 ### Functions in C
 
@@ -1457,3 +1253,410 @@ int main() {
 }
 ```
 
+## Problem sheets:
+### Problem sheet 1
+
+1. Write a program to find the sum of the digits of a given number using a while loop.
+```c
+#include <stdio.h>
+int main(){
+    int n, copy, sum = 0;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    copy = n;
+    while(copy > 0){
+        sum += (copy % 10);
+        copy /= 10;
+    }
+    printf("Sum of digits of the number %d is %d\n", n, sum);
+    return 0;
+}
+```
+2. Write a program that takes a character as input and uses the ternary operator to print
+whether the character is a vowel or a consonant.
+```c
+#include <stdio.h>
+int main(){
+    char c;
+    printf("Enter a character: ");
+    scanf("%c", &c);
+    c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u '|| c =='A' || c =='E'|| c =='I'|| c =='O'|| c =='U'  ? printf("Vowel\n") : printf("Not a vowel\n");
+    return 0;
+}
+```
+
+
+
+
+3. Write a program that takes an integer as input, which represents a month number (1-12),
+and uses the switch statement to print the corresponding month name.
+```c
+#include <stdio.h>
+int main(){
+    int month;
+    // input for month number
+    printf("Enter a month number: ");
+    scanf("%d", &month);
+    // printing the month
+    switch (month)
+    {
+    case 1:
+        printf("January\n");
+        break;
+    case 2:
+        printf("February\n");
+        break;
+    case 3:
+        printf("March\n");
+        break;
+    case 4:
+        printf("April\n");
+        break;
+    case 5:
+        printf("May\n");
+        break;
+    case 6:
+        printf("June\n");
+        break;
+    case 7:
+        printf("July\n");
+        break;
+    case 8:
+        printf("August\n");
+        break;
+    case 9:
+        printf("September\n");
+        break;
+    case 10:
+        printf("October\n");
+        break;
+    case 11:
+        printf("November\n");
+        break;
+    case 12:
+        printf("December\n");
+        break;
+    default:
+    printf("Invalid month number\n");
+        break;
+    return 0;
+    }
+}
+```
+4. Write a program to check if it is a palindrome
+```c
+#include <stdio.h>
+#include <string.h>
+
+
+int main(){
+    char word[1000], rev[1000];
+    // input for the word
+    printf("Enter a word: ");
+    scanf("%s", word);
+    int len = strlen(word);
+    for (int i = 0; i < len; i++)
+    {
+        rev[i] = word[len-i-1];
+    }
+    rev[len] = '\0';
+    strcmp(word, rev) ? printf("Not a palindrome\n") : printf("Palindrome\n");
+    return 0;
+}
+```
+
+
+
+
+
+
+5. Write a program using for to print the following pattern.
+```
+*
+* *
+* * *
+* * * *
+* * * * *
+```
+```c
+#include <stdio.h>
+int main(){
+    for (int i = 1; i <= 5; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            printf("* ");
+        } // closing inner loop
+        printf("\n");
+    }
+    return 0;
+}
+```
+6. Write a program that takes a 2D array of integers as input and prints the largest element in the array.
+```c
+#include <stdio.h>
+int main(){
+    int arr[100], n, max;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    // input for the array
+    printf("Enter the elements\n");
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    // finding the max
+    max = arr[0];
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] > max)
+        {
+            max = arr[i];
+        } // closing if
+       
+    }
+    printf("The largest element in the array is: %d\n", max);
+    return 0;
+}
+```
+7. Write a program that takes a 2D array of characters as input and prints each element in the array on a new line.
+```c
+#include <stdio.h>
+int main(){
+    char arr[100];
+    int n;
+    printf("Enter the number of characters: ");
+    scanf("%d", &n);
+    getchar(); // to clear the \n from the previous input
+    // input for the array
+    printf("Enter the characters\n");
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%c", &arr[i]);
+    }
+    // printing
+    for (int i = 0; i < n; i++)
+    {
+        printf("%c\n", arr[i]);
+    }
+    return 0;
+}
+```
+8. Write a program that takes an integer as input and uses the printf function to print the integer in hexadecimal format. Use the %x format specifier to print the hexadecimal number.
+```c
+#include <stdio.h>
+int main(){
+    int num;
+    // input for number
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    // printing the number in hexadecimal
+    printf("The number in hexadecimal is: %x\n", num);
+    return 0;
+}
+```
+9. Write a program that takes a string and an integer as input and uses the printf function to print
+them. Use the %s format specifier to print the string and the %5d format specifier to print the
+integer with a minimum width of 5 characters.
+```c
+#include <stdio.h>
+int main(){
+    int num;
+    char str[100];
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printf("Enter a string: ");
+    scanf("%s", str);
+    printf("Number: %5d\nString: %s\n", num, str);
+    return 0;
+}
+```
+10. Write a program that generates a random number between 1 and 100 and asks the user to guess the number. Use a do-while loop to keep asking the user for guesses until they correctly guess the number.
+```c
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+    // generating random number
+    int random = rand() % 100, guess;
+    // checking guesses
+    do
+    {
+        printf("Enter your guess: ");
+        scanf("%d", &guess);
+        guess == random ? printf("Correct!\n") : guess > random ? printf("Try lower\n") : printf("Try higher\n");
+    } while (guess != random);
+    return 0;
+}
+```
+
+
+### Problem sheet 2
+
+Question 2
+Write a C function named sort that takes a 1D integer array as input and sorts the array elements in
+ascending order. The function should modify the original array passed as an argument. Implement the
+function and provide a sample usage.
+Function Signature:
+void sort(int arr[], int size);
+```c
+#include <stdio.h>
+
+void sort(int arr[], int size);
+void print(int arr[], int size);
+
+
+int main() {
+    int nums[] = {3,1,6,2,5,7,4,8};
+    int len = sizeof(nums) / sizeof(nums[0]);
+    sort(nums, len);
+    print(nums, len);
+    return 0;
+}
+
+void sort(int arr[], int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        for(int j = 0; j < size - i; j++)
+        {
+            if(arr[j] > arr[j+1])
+            {
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
+
+void print(int arr[], int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        printf("%d\t", arr[i]);
+    }
+    printf("\n");
+}
+```
+
+Question 3
+Write a program in C to perform the following operations on arrays of strings:
+
+i) Find the length of the shortest string.
+ii) Find the length of the longest string.
+iii) Calculate the average length of all the strings.
+iv) Count the number of strings with a length greater than a given threshold.
+Your program should take an array of strings as input and provide a menu-driven interface to perform
+these operations. The program should terminate when the user chooses to exit.
+Note:
+Assume that the maximum number of strings in the array is 100 and the maximum length of each string
+is 100 characters. The length of a string should be calculated excluding the null-terminating character
+&#39;\0&#39;.
+You can use the following function signatures as a reference:
+int findShortestString(char arr[][100], int n);
+int findLongestString(char arr[][100], int n);
+float calculateAverageLength(char arr[][100], int n);
+int countStringsAboveThreshold(char arr[][100], int n, int threshold);
+Provide the necessary user prompts and handle the input/output accordingly. Write the program code
+and the necessary functions to implement the above operations.
+```c
+#include <stdio.h>
+#include <string.h>
+
+int findShortestString(char arr[][100], int n);
+int findLongestString(char arr[][100], int n);
+float calculateAverageLength(char arr[][100], int n);
+int countStringsAboveThreshold(char arr[][100], int n, int threshold);
+void getArray(char arr[][100], int n);
+
+int main() {
+    int n;
+    char op;
+    do{
+        printf("Enter the number of words to be input: ");
+    scanf("%d", &n);
+    char words[n][100];
+    getArray(words, n);
+    printf("Choose your option:\na - find the length of the shortest string\nb - find the length of the shortest string\nc - average length of strings\nd - count the number of strings with a length greater than a given threshold.\ne - Exit\n");
+    op =getchar();
+    switch(op)
+    {
+        case 'a':
+            printf("%d\n", findShortestString(words, n));
+            break;
+        case 'b':
+            printf("%d\n", findLongestString(words, n));
+            break;
+        case 'c':
+            printf("%f\n", calculateAverageLength(words, n));
+            break;
+        case 'd':
+            printf("Enter the threshold: ");
+            int threshold = scanf("%d", &threshold);
+            printf("%d\n", countStringsAboveThreshold(words, n, threshold));
+            break;
+        case 'e':
+            // exit
+            break;
+    }
+    } while(op != 'e');
+    return 0;
+}
+
+void getArray(char arr[][100], int n)
+{
+    scanf("\n");
+    for(int i=0; i<n; i++)
+    {
+        // fflush(stdin);
+        gets(arr[i]);
+    }
+}
+
+int findShortestString(char arr[][100], int n){
+    int min = strlen(arr[0]);
+    for(int i=1; i< n; i++)
+    {
+        if(strlen(arr[i]) < min)
+        {
+            min = strlen(arr[i]);
+        }
+    }
+    return min;
+}
+
+int findLongestString(char arr[][100], int n){
+    int max = strlen(arr[0]);
+    for(int i=1; i< n; i++)
+    {
+        if(strlen(arr[i]) > max)
+        {
+            max = strlen(arr[i]);
+        }
+    }
+    return max;
+}
+
+float calculateAverageLength(char arr[][100], int n){
+    int sum = 0;
+    for(int i=0; i< n; i++)
+    {
+        sum += strlen(arr[i]);
+    }
+    float avg = sum / (float) n;
+    return avg;
+    
+}
+
+int countStringsAboveThreshold(char arr[][100], int n, int threshold){
+    int count = 0;
+    for(int i = 0; i< n; i++)
+    {
+        if(strlen(arr[i]) > threshold)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+```
