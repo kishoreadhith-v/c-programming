@@ -17,10 +17,10 @@ Kishoreadhith V
 | Switch case                                     	| 18   	|
 | Structures                                      	| 19   	|
 | Pointers                                        	| 22   	|
-| Problems Sheet 1                                	| 25   	|
-| Problems Sheet 2                                	| 29   	|
-| Problems Sheet 2                                	| 29   	|
-| Problems Sheet 2                                	| 29   	|
+| Storage classes                                 	| 25   	|
+| Dynamic memory allocation                       	| 26   	|
+| Problems Sheet 1                                	| 28   	|
+| Problems Sheet 2                                	| 32   	|
 
 ---
 
