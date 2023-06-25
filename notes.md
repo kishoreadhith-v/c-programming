@@ -5,20 +5,20 @@ Kishoreadhith V
 ## Table of contents
 |                      Topic                      	| Page 	|
 |:-----------------------------------------------:	|:----:	|
-| Basic structure of a C program and header files 	|      	|
-| Data types and format specifiers                	|      	|
-| Loops in C                                      	|      	|
-| Ternary operator                                	|      	|
-| Bitwise operators                               	|      	|
-| Arrays      		                               	|      	|
-| Strings		                               	|      	|
-| Functions                                       	|      	|
-| Recursion                                       	|      	|
-| Switch case                                     	|      	|
-| Structures                                      	|      	|
-| Pointers                                        	|      	|
-| Problem Sheet 1                                      	|      	|
-| Problem Sheet 2                                      	|      	|
+| Basic structure of a C program and header files 	| 2    	|
+| Data types and format specifiers                	| 4    	|
+| Loops in C                                      	| 6    	|
+| Ternary operator                                	| 12   	|
+| Bitwise operators                               	| 12   	|
+| Arrays                                          	| 14   	|
+| Strings                                         	| 15   	|
+| Functions                                       	| 16   	|
+| Recursion                                       	| 17   	|
+| Switch case                                     	| 18   	|
+| Structures                                      	| 19   	|
+| Pointers                                        	| 22   	|
+| Problems Sheet 1                                	| 25   	|
+| Problems Sheet 2                                	| 29   	|
 ---
 
 ## Basic structure of a C program and header files
@@ -136,7 +136,7 @@ The directories specified by the -I command-line option or the INCLUDE environme
 The standard system directories eg: `C:\MinGW\include` or `C:\CodeBlocks\MinGW\include`
 If the header file is still not found, it raises an error.
 ---
-## Format specifiers and data types cheat sheet
+## Data types and format specifiers
 ![image](https://github.com/kishoreadhith-v/c-programming/assets/117294726/74649bea-0595-4743-a1f4-440c537d616c)
 
 ![image](https://github.com/kishoreadhith-v/c-programming/assets/117294726/b46d8da3-210a-4fab-bbaf-1759ecbb5668)
@@ -719,11 +719,11 @@ int main(){
 }
 ```
 
-### Functions in C
+## Functions in C
 
 Functions in C are blocks of code that can be reused throughout a program. They allow us to modularize code and make it more manageable.
 
-#### Function Definition
+### Function Definition
 
 A function definition consists of the following components:
 
@@ -819,7 +819,7 @@ int main(){
 }
 ```
 
-### Recursion
+## Recursion
 
 #### Terminologies
 
@@ -866,7 +866,7 @@ int main(){
 }
 ```
 
-### Switch Case Statement in C
+## Switch Case Statement in C
 
 The switch case statement in C is used to select one of many code blocks to be executed based on the value of an expression. Here are some key points about the switch case statement:
 
@@ -927,7 +927,7 @@ int main(){
 }
 ```
 
-### Structures
+## Structures
 Structs in C are used to create custom data types that can hold multiple variables of different types as a single unit. They allow you to group related data together.
 
 #### Syntax for declaration
@@ -1113,7 +1113,7 @@ int main() {
 }
 ```
 
-### Pointers
+## Pointers
 
 consider...
 
@@ -1256,7 +1256,7 @@ int main() {
 ```
 
 ## Problem sheets:
-### Problem sheet 1
+## Problem sheet 1
 
 1. Write a program to find the sum of the digits of a given number using a while loop.
 ```c
@@ -1492,7 +1492,7 @@ int main(){
 ```
 
 
-### Problem sheet 2
+## Problem sheet 2
 
 Question 2
 Write a C function named sort that takes a 1D integer array as input and sorts the array elements in
