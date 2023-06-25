@@ -9,5 +9,4 @@ int main(){
         sum += *(ptr + i);
     }
     printf("Sum: %d\n", sum);
-    
 }

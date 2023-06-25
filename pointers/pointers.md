@@ -44,3 +44,26 @@ This snippet shows how to point to an array and how it is different from pointin
 ## Pointer arithmetic
 
 Incrementing the pointer of an element of an array, gives the next element
+
+
+--- 
+## Passing Pointer to functions
+
+```c
+void swapPtr(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+```
+
+As shown in the above example, the parameters are written in the same way we declare pointer variables
+
+```c
+swapPtr(&a, &b);
+```
+
+In the call we use `&` to pass the address of a variable
+
+---

@@ -62,7 +62,4 @@ int main(){
         printAverage(s[i]);
     }
     printAverage(arrayAverage(s, 3));
-
-
-
 }
