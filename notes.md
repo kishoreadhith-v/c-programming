@@ -1284,6 +1284,36 @@ int main(){
     printAverage(arrayAverage(s, 3));
 }
 ```
+Stocks in a store using struct:
+
+```c
+#include <stdio.h>
+
+struct item {
+    char name[50];
+    int quantity;
+    float price;
+};
+
+int main() {
+    struct item ledger[3];
+    for(int i = 0; i < 3; i++){
+        printf("Enter the name of the product, quantity and unit price separated by spaces:");
+        scanf("%s %d %f",&ledger[i].name,&ledger[i].quantity,&ledger[i].price);
+    }
+    for(int i = 0; i < 3; i++){
+        printf("-----\n");
+        printf("Item %d", i);
+        printf("---\n");
+        printf("Name       : %s\n", ledger[i].name);
+        printf("Quantity   : %d\n", ledger[i].quantity);
+        printf("Unit price : %f\n", ledger[i].price);
+    }
+    
+
+    return 0;
+}
+```
 
 ### Pointers
 
@@ -1342,5 +1372,88 @@ Incrementing the pointer of an element of an array gives the next element
 
 Example:
 
+Array of pointers example
 
+```c
+#include <stdio.h>
+
+int main() {
+    int *ip[5];
+    int a = 4,b=2,c=6,d=9,e=20;
+    ip[0] = &a;
+    ip[1] = &b;
+    ip[2] = &c;
+    ip[3] = &d;
+    ip[4] = &e;
+    printf("%d\n", *(ip+3));
+    printf("%d\n", *(3+ip));
+    printf("%d\n", ip[3]);
+    printf("%d\n", 3[ip]);
+    return 0;
+}
+```
+
+Sum of all elements in a 2d matrix as a function
+```c
+#include <stdio.h>
+
+int sum(int *ar[])
+
+int main() {
+    int mat[2][3] = {1,2,3,4,5,6};
+    int (*p)[3];
+    p = mat;
+    int sum = 0;
+    for(int i = 0; i< 2; i++){
+        for(int j = 0; j < 3; j++){
+            sum += *(*(p+i)+j);
+        }
+    }
+    printf("sum = %d", sum);
+    
+    return 0;
+}
+```
+
+Traversing a 2d arrays using pointers
+
+```c
+#include <stdio.h>
+
+int main() {
+    int mat[2][3] = {{1,2,3},
+                    {4,5,6}};
+    int (*p)[3];
+    p = mat;
+    printf("%d\n", p);
+    printf("%d\n", *p[0]);
+    printf("%d\n", p+1);
+    printf("%d\n", *(p+1)[0]);
+    printf("%d\n", *((p+1)+1));
+    printf("%d\n", *(*(p+1)+1));
+    return 0;
+}
+```
+
+Sum of all elements in a 2d matrix as a function
+```c
+#include <stdio.h>
+
+int sum(int *ar[])
+
+int main() {
+    int mat[2][3] = {1,2,3,4,5,6};
+    int (*p)[3];
+    p = mat;
+    int sum = 0;
+    for(int i = 0; i< 2; i++){
+        for(int j = 0; j < 3; j++){
+            sum += *(*(p+i)+j);
+        }
+    }
+    printf("sum = %d", sum);
+    
+    return 0;
+}
+```
 
