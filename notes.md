@@ -1,5 +1,19 @@
 # C programming notes
 
+## Table of contents
+|                      Topic                      	| Page 	|
+|:-----------------------------------------------:	|:----:	|
+| Basic structure of a C program and header files 	|      	|
+| Data types and format specifiers                	|      	|
+| Loops in C                                      	|      	|
+| Ternary operator                                	|      	|
+| Bitwise operators                               	|      	|
+| Functions                                       	|      	|
+| Recursion                                       	|      	|
+| Switch case                                     	|      	|
+| Structures                                      	|      	|
+| Pointers                                        	|      	|
+
 C Programs:
 To print “Hello World”
 ```c
@@ -1286,10 +1300,10 @@ int main(){
 ```
 
 In the above example
-- `ptr` is a pointer which points to the address of the variable `x`
+- `ptr` is a pointer that points to the address of the variable `x`
 - the `&` operator is used to assign the address of `x` to `ptr`
 - the `*` operator gives the value of `x` (reverse of `&`)
-- the datatype of the pointer should be same as tha tof the variable it is pointing to.
+- the data type of the pointer should be the same as the of the variable it is pointing to.
 - 
 
 ```c
@@ -1316,6 +1330,17 @@ This snippet shows how to point to an array and how it is different from pointin
 
 #### Pointer arithmetic
 
-Incrementing the pointer of an element of an array, gives the next element
+Incrementing the pointer of an element of an array gives the next element
+
+#### Array of pointers vs Pointer to an array
+
+|                        **Array of pointers**                        	|             **Pointer to an array**             	|
+|---------------------------------------------------------------------	|-------------------------------------------------	|
+| `int *p[4]`                                                         	| `int (*p)[4]`                                   	|
+| Here, p is an array that can store 4 pointers of type `int`        	| p is a pointer to an array of 4 integers        	|
+| p is the address of the first element p[1], which is also a pointer 	| p is the address of the first element (integer) 	|
+
+Example:
+
 
 
