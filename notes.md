@@ -1793,3 +1793,23 @@ int countStringsAboveThreshold(char arr[][100], int n, int threshold){
     return count;
 }
 ```
+## Nested Structures
+
+consider
+
+```c
+struct Address {
+int doorno, pincode;
+char stname[50], city[50];
+}
+
+struct Student{
+	char *name, *rollno;
+	struct Address a;
+}
+
+```
+
+
+FUNCTION call: test(s.name). what will be the header prototype ?
+void test(char * name)
