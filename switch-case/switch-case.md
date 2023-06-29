@@ -1,6 +1,7 @@
-#Switch Case
+# Switch Case
 
-##syntax
+## syntax
+```c
     switch (expression)
     {
     case /* constant-expression */:
@@ -10,4 +11,4 @@
     default:
         break;
     }
-
+```
