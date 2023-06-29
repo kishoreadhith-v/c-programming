@@ -36,6 +36,10 @@ int *p;
 ## free()
 free is used to deallocate the memory allocated. It takes the pointer as the arguement.
 
+```c
+    free(p);
+```
+
 ## realloc()
 
 This function is used to reallocate memory to a variable that is already allocated. It take the the pointer to the existing memeory and the number of bytes to be reallocated as arguements.
@@ -67,6 +71,10 @@ original == smaller: 1
 ## calloc()
 This function allocates contigous memory locations.
 
+example:
+```c
+int *p = (int *)calloc(5,sizeof(int));
+```
 
 
 function that takes a sentence as input, dynamically allocates memory and count the number of words in it.
