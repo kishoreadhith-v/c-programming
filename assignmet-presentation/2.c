@@ -6,22 +6,36 @@
 
 char* unique_sort(char* str){
     int len = strlen(str);
-    char* unique = (char*)malloc(sizeof(str));
+    char* unique = (char*)malloc(sizeof(str) + 1);
     int unique_len = 0;
     for (int i = 0; i < len; i++)
     {
-        for (int j = 0; j < i; j++)
+        int found = 0;
+        for (int j = 0; j < unique_len; j++)
         {
             if (str[i] == unique[j])
             {
+                found = 1;
                 break;
             }
-            *(unique + unique_len) = str[i];
-            unique_len++;
         }
+            if(!found){
+                *(unique + unique_len) = str[i];
+                unique_len++;
+            }
         
     }
-
+    *(unique + unique_len) = '\0';
+    // sorting
+    for(int i = 0; i < unique_len; i++){
+        for(int j = i + 1; j < unique_len; j++){
+            if(unique[i] > unique[j]){
+                char temp = unique[i];
+                unique[i] = unique[j];
+                unique[j] = temp;
+            }
+        }
+    }
     return unique;
 }
 

@@ -1,31 +1,51 @@
 // Write a function that accepts a two-dimensional array of integers and returns the transpose of the
 // array (rows become columns and vice versa).
 
-# include <stdio.h>
-# include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-int ** transpose( int ** mat, int rows, int columns){
-    int ** res = (int **)malloc(rows * sizeof(int*));
+int ** rotate(int ** arr, int rows, int cols){
+    int ** res = (int **) malloc(rows * sizeof(int *));
     for (int i = 0; i < rows; i++)
     {
-        res[i] = (int*)malloc(columns * sizeof(int));
-        for (int j = 0; j < columns; j++)
-        {
-            res[i][j] = mat[j][i];
-        }        
+        res[i] = (int *) malloc(cols * sizeof(int));
+    }
+    for(int i = 0; i < cols; i++){
+        for(int j = 0; j < rows; j++){
+            res[j][i] = arr[i][j];
+        }
     }
     return res;
 }
 
-
 int main(){
-    int a[3][3] = {1,2,3,4,5,6,7,8,9};
-    int **tr;
-    tr = transpose((int **)a,3,3);
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            printf("%d ", tr[i][j]);
+    int rows, cols;
+    printf("Enter the number of rows and columns separated by spaces: ");
+    scanf("%d %d", &rows, &cols);
+
+    int ** arr = (int **) malloc(rows * sizeof(int *));
+    for (int i = 0; i < rows; i++)
+    {
+        arr[i] = (int *) malloc(cols * sizeof(int));
+    }
+
+    printf("Enter the elements of the array separated by spaces:\n");
+    for (int i = 0; i < rows; i++) {
+        printf("Row %d: ", i + 1);
+        for (int j = 0; j < cols; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    int ** res = rotate(arr, rows, cols);
+    printf("The rotated array is:\n");
+    for (int i = 0; i < cols; i++) {
+        printf("Row %d: ", i + 1);
+        for (int j = 0; j < rows; j++) {
+            printf("%d ", res[i][j]);
         }
         printf("\n");
     }
+
+    return 0;
 }
