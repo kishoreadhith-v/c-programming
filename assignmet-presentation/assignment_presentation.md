@@ -20,7 +20,7 @@ int main(){
     printf("%d\n", power(3, 5));
 }
 ```
-1. Implement a function that accepts a string and returns a dynamically allocated array of characters containing the unique characters in the string, sorted in ascending order.
+2. Implement a function that accepts a string and returns a dynamically allocated array of characters containing the unique characters in the string, sorted in ascending order.
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -67,7 +67,7 @@ int main(){
     return 0;
 }
 ```
-1. Write a function that accepts a two-dimensional array of integers and returns the transpose of the
+3. Write a function that accepts a two-dimensional array of integers and returns the transpose of the
 array (rows become columns and vice versa).
 ```c
 #include <stdio.h>
@@ -119,7 +119,7 @@ int main(){
     return 0;
 }
 ```
-1. Write a function that accepts a string and returns the longest palindrome substring in the string.
+4. Write a function that accepts a string and returns the longest palindrome substring in the string.
 ```c
 #include <stdio.h>
 #include <string.h>
@@ -158,7 +158,7 @@ int main() {
     return 0;
 }
 ```
-1. Implement a recursive function to solve the Tower of Hanoi problem with n disks, given three
+5. Implement a recursive function to solve the Tower of Hanoi problem with n disks, given three
 towers.
 ```c
 #include <stdio.h>
@@ -179,7 +179,7 @@ int main(){
     hanoi(4, 'a', 'b', 'c');
 }
 ```
-1. Write a function that accepts a two-dimensional array of integers and returns the largest square
+6. Write a function that accepts a two-dimensional array of integers and returns the largest square
 submatrix that consists of only 1s.
 ```c
 #include <stdio.h>
@@ -240,7 +240,7 @@ int main(){
     return 0;
 }
 ```
-1. Write a function that accepts a pointer to a string and removes all the vowels from the string,
+7. Write a function that accepts a pointer to a string and removes all the vowels from the string,
 modifying it in-place.
 ```c
 #include <stdio.h>
@@ -268,7 +268,7 @@ int main(){
     return 0;
 }
 ```
-1. Create a function that accepts two dynamically allocated arrays of integers and merges them into
+8. Create a function that accepts two dynamically allocated arrays of integers and merges them into
 a new sorted array. The function should return a pointer to the merged array, and it should handle
 the deallocation of the input arrays.
 ```c
@@ -312,7 +312,7 @@ int main(){
     return 0;
 }
 ```
-1. Write a function that accepts a pointer to a 2D array of integers and rotates the array 90 degrees
+9. Write a function that accepts a pointer to a 2D array of integers and rotates the array 90 degrees
 clockwise in-place.
 ```c
 #include <stdio.h>
@@ -364,7 +364,7 @@ int main(){
     return 0;
 }
 ```
-1. Create a function that accepts a pointer to a 2D array of floating-point numbers and calculates
+10. Create a function that accepts a pointer to a 2D array of floating-point numbers and calculates
 the average value of each column, storing the results in a dynamically allocated 1D array. The
 function should return a pointer to the resulting array.
 ```c
