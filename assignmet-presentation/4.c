@@ -15,8 +15,7 @@ int palindrome(char *word, int len) {
 
 char *longestPalindrome(char *s) {
     int len = strlen(s);
-    char *longest = (char *)malloc((len + 1) * sizeof(char));
-    longest[0] = '\0'; 
+    char *longest = (char *)malloc((len + 1) * sizeof(char)); 
 
     for (int start = 0; start < len; start++) {
         for (int end = start + 1; end <= len; end++) { 
@@ -24,7 +23,6 @@ char *longestPalindrome(char *s) {
             int sublen = end - start;
             if (palindrome(sub, sublen) && sublen > strlen(longest)) {
                 strncpy(longest, sub, sublen);
-                
             }
         }
     }
@@ -32,7 +30,7 @@ char *longestPalindrome(char *s) {
 }
 
 int main() {
-    char name[] = "amadam racecar";
+    char name[] = "amadam racecaromomomalayalamsethu";
     printf("%s\n", longestPalindrome(name));
     return 0;
 }

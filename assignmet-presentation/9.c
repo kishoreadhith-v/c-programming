@@ -49,3 +49,10 @@ int main(){
 
     return 0;
 }
+
+
+temp = i j
+i j =  i r - j
+i r-j = c-i r-j
+c-i r-j = c-i j
+c-i j = temp
